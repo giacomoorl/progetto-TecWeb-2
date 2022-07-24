@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: 0;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+h1, h2, h3 {
+    display: inline-block;
+    margin: 1em 0;
+}
+
+a {
+    color: blue;
+}
+
+a:visited {
+    color: red;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto 100vh auto;
+    grid-template-areas:
+            "header header"
+            "breadcrumb breadcrumb"
+            "sidebar main"
+            "footer footer";
+}
+
+#sidebar, #content, #footer {
+    padding: 2em;
+}
+
+.button {
+    padding: 1em 1.5em;
+    border-radius: 1.6em;
+    font-weight: 600;
+    color: blue;
+    background-color: white;
+}
+
+input.button:not(:disabled) {
+    cursor: pointer;
+}
+
+input:disabled.button {
+    background-color: lightgray;
+    color: gray;
+}
+
+/*------------STILE HEADER------------ */
+
+#header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    grid-area: header;
+    padding: 1em;
+    color: white;
+    background-color: blue;
+}
+
+#title > h1 {
+    margin: 0;
+}
+
+#search {
+    position: relative;
+    width: 40%;
+    border-bottom: 1px solid white;
+}
+
+#search > input {
+    position: absolute;
+    left: 3.5em;
+    height: 3em;
+    width: 100%;
+    background-color: inherit;
+    caret-color: white;
+}
+
+#search > ::placeholder {
+    color: white;
+}
+
+.search-icon {
+    display: inline-block;
+    position: relative;
+    width: 3em;
+    height: 3em;
+}
+
+.search-icon > * {
+    display: block;
+    position: absolute;
+}
+
+.search-icon-0 {
+    width: 1.5em;
+    height: .5em;
+    bottom: 0.75em;
+    border-radius: .25em;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+.search-icon-1 {
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 1em;
+    left: .75em;
+    border-radius: 1em;
+    background-color: white;
+}
+
+.search-icon-2 {
+    width: 1em;
+    height: 1em;
+    left: 1em;
+    bottom: 1.25em;
+    border-radius: .75em;
+    background-color: blue;
+}
+
+#login {
+    color: blue;
+    background-color: white;
+}
+
+/*------------FINE STILE HEADER------------*/
+
+/*------------STILE BREADCRUMB------------*/
+
+#breadcrumb {
+    grid-area: breadcrumb;
+    padding: 0 1em;
+    color: blue;
+}
+
+/*------------FINE STILE BREADCRUMB------------*/
+
+/*------------STILE SIDER------------*/
+
+#sidebar {
+    grid-area: sidebar;
+    border-image: linear-gradient(rgba(0, 0, 255, 0), blue, rgba(0, 0, 255, 0)) 1 100%;
+    border-right: 1px solid;
+}
+
+#sidebar > * {
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+#categories {
+    color: white;
+    background-color: blue;
+}
+
+#categories ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    color: blue;
+    font-weight: 600;
+}
+
+#categories li {
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: .5em;
+    background-color: white;
+}
+
+/*------------FINE STILE SIDER------------*/
+
+/*------------STILE MAIN------------*/
+
+#content {
+    padding: 2em 4em;
+}
+
+/*------------FINE STILE MAIN------------*/
+
+/*------------STILE FOOTER------------*/
+
+#footer {
+    grid-area: footer;
+    background-color: blue;
+    color: white;
+}
+
+/*------------FINE STILE FOOTER------------*/
