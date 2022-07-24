@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta charset="UTF-8" />
+    <link href="index.css" rel="stylesheet" />
+    <link href="post/post.css" rel="stylesheet" />
+    <script type="text/javascript" src="index.js"></script>
+    <title>forumm</title>
+</head>
+<body>
+    <header id="header">
+        <div id="title">
+            <h1>forumm</h1>
+        </div>
+        <div id="search">
+            <div class="search-icon">
+                <span class="search-icon-0"></span>
+                <span class="search-icon-1"></span>
+                <span class="search-icon-2"></span>
+            </div>
+            <input type="text" placeholder="Cerca..." />
+        </div>
+        <div id="login" class="button">
+            <a href="">Accedi</a>
+        </div>
+    </header>
+    <div id="breadcrumb">
+        <p>Ti trovi in: Post</p>
+    </div>
+    <nav id="sidebar">
+        <div id="categories">
+            <h2>Categorie</h2>
+            <ul>
+                <li>
+                    <a id="all" href="./">Tutto</a>
+                </li>
+                <li>
+                    <a id="gaming" href="./?category=gaming" lang="en">Gaming</a>
+                </li>
+                <li>
+                    <a id="politic" href="./?category=politic">Politica</a>
+                </li>
+                <li>
+                    <a id="science" href="./?category=science">Scienza</a>
+                </li>
+                <li>
+                    <a id="technology" href="./?category=technology">Tecnologia</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main id="content">
+        <div id="post">
+            <post />
+            <form id="pagination" method="get" action="./">
+                <pages />
+            </form>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>
+            Progetto di Tecnologie Web, A.A. 2021 - 2022, sviluppato da:
+        </p>
+        <ul>
+            <li>Masetto Michele;</li>
+            <li>Orlandi Giacomo;</li>
+            <li>Vignaga Matteo;</li>
+            <li>Zheng Zhen Wei.</li>
+        </ul>
+    </footer>
+</body>
+</html>
