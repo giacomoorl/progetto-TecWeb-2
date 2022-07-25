@@ -5,8 +5,7 @@
     <meta name="keywords" content="" />
     <meta charset="UTF-8" />
     <link href="../index.css" rel="stylesheet" />
-    <link href="post.css" rel="stylesheet" />
-    <script type="text/javascript" src="index.js"></script>
+    <link href="comments.css" rel="stylesheet" />
     <title>forumm</title>
 </head>
 <body>
@@ -51,13 +50,17 @@
             </ul>
         </div>
     </nav>
+    <input type="button" class="button" value="Indietro" aria-label="torna indietro" href="../index.php" />
     <main id="content">
-        <div id="post">
-            <post />
-            <form id="pagination" method="get" action="./">
-                <pages />
-            </form>
-        </div>
+      <div class="postBlock">
+        <comments />
+      </div>
+      <div class="commentBlock">
+        <form action="commenta.php" method="post">
+          <input type="text" class="text-area" />
+          <input type="submit" class="button" value="Invia" aria-label="invia commento" />
+        </form>
+      </div>
     </main>
     <footer id="footer">
         <p>

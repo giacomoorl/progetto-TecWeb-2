@@ -69,8 +69,26 @@ class DBAccess {
     public function getComments($post) {
         $query = "SELECT *
             FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
-            WHERE `POST`.`title`='$post'";
+            WHERE `POST`.`title`='$post' AND `COMMENTO`.`reply`='0';
+            ORDER BY `COMMENTO`.`date`";
         return $this->query($query);
+    }
+
+    public function getReplyComments($post,$id) {
+      $query = "SELECT * FROM (
+                  SELECT *
+                      FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
+                      WHERE `POST`.`title`='$post'
+                )
+                WHERE `COMMENTO`.`reply`='$id'
+                ORDER BY `COMMENTO`.`date`";
+      return $this->query($query);
+    }
+
+    public function commenta($post,$user,$text) {
+      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`) VALUES
+              ('$post', '$user', '$text')";
+      return $this->query($query);
     }
 
 }
