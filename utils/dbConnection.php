@@ -66,6 +66,11 @@ class DBAccess {
         return $this->query($query);
     }
 
+    public function getPostByTitleContains($title) {
+        $query = "SELECT * FROM `POST` WHERE `title` LIKE '%$title%'";
+        return $this->query($query);
+    }
+
     public function getComments($post) {
         $query = "SELECT *
             FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
