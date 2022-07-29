@@ -7,7 +7,7 @@ class DBAccess {
     private const HOST_DB = "localhost";
     private const USERNAME = "root";
     private const PASSWORD = "root";
-    private const DATABASE_NAME = "forumm";
+    private const DATABASE_NAME = "forum";
 
     private $connection;
 
@@ -88,6 +88,20 @@ class DBAccess {
     public function commenta($post,$user,$text) {
       $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`) VALUES
               ('$post', '$user', '$text')";
+      return $this->query($query);
+    }
+
+    public function rispondi($post,$user,$text,$id) {
+      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`,`id`) VALUES
+              ('$post', '$user', '$text',`$id`)";
+      return $this->query($query);
+    }
+
+    public function getNumPost($user) {
+      $query = "SELECT COUNT * FROM (
+                  SELECT *
+                  FROM `USER` JOIN `POST` ON `USER`.`username` = `POST`.`user`
+                ) WHERE `POST`.`user` = $user";
       return $this->query($query);
     }
 

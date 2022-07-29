@@ -6,6 +6,8 @@
     <meta charset="UTF-8" />
     <link href="../index.css" rel="stylesheet" />
     <link href="comments.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="slideToggle.js"></script>
     <title>forumm</title>
 </head>
 <body>
@@ -50,16 +52,47 @@
             </ul>
         </div>
     </nav>
-    <input type="button" class="button" value="Indietro" aria-label="torna indietro" href="../index.php" />
-    <main id="content">
+    <main>
+      <div id="indietro"><input type="button" class="button" value="Indietro" aria-label="torna indietro" href="../index.php" /></div>
       <div class="postBlock">
+        <div class='topic-container'>
+          <div class='head'><div class='content'>TITOLO A CASO</div></div>
+          <div class='body'>
+            <div class='authors'>
+              <div class='username'><p>USERNAME</p></div>
+              <div>Post : <u>22</u></div>
+              <div>12/12/2012</div>
+            </div>
+            <div class='description'>
+              <p>ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO </p>
+              <div class='comment'>
+                <button id='comment'>Commenta</button>
+              </div>
+            </div>
+         </div>
+
+       </div>
+       <div class='comment-area'>
+         <form action='commenta.php' method='post'>
+           <textarea name='comment' placeholder='commenta qui . . . '></textarea>
+           <input type='submit' value='invia'>
+         </form>
+       </div>
+       <div class='comment-container'>
+                   <div class='body'>
+                     <div class='authors'>
+                       <div class='username'><p>USER</p></div>
+                       <div>Post : <u>222</u></div>
+                       <div>12/12/1212</div>
+                     </div>
+                     <div class='description'>
+                       <p>ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO ROBE A CASO </p>
+                       <div class='comment'>
+                         <button id='comment'>Commenta</button>
+                       </div>
+                     </div>
+                   </div></div>
         <comments />
-      </div>
-      <div class="commentBlock">
-        <form action="commenta.php" method="post">
-          <input type="text" class="text-area" />
-          <input type="submit" class="button" value="Invia" aria-label="invia commento" />
-        </form>
       </div>
     </main>
     <footer id="footer">

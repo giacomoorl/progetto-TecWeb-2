@@ -63,7 +63,7 @@ CREATE TABLE `COMMENTO` (
     `user` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
     `text` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
     `date` timestamp NOT NULL DEFAULT current_timestamp(),
-    `reply` int(11) DEFAULT `0`
+    `reply` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
