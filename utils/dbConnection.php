@@ -66,8 +66,27 @@ class DBAccess {
         return $this->query($query);
     }
 
-    public function getPostByTitleContains($title) {
+    public function getPostsByTitle($title) {
         $query = "SELECT * FROM `POST` WHERE `title` LIKE '%$title%'";
+        return $this->query($query);
+    }
+
+    public function getPostsByTitleByPage($title, $page) {
+        $page = ($page - 1) * 10;
+        $nextPage = $page + 10;
+        $query = "SELECT `P1`.`title`, `P1`.`user`, `P1`.`date`, `P1`.`description`
+            FROM (
+                SELECT *
+                FROM `POST`
+                WHERE `title` LIKE '%$title%'
+                LIMIT $nextPage
+            ) AS `P1` LEFT JOIN (
+                SELECT title
+                FROM `POST`
+                WHERE `title` LIKE '%$title%'
+                LIMIT $page
+            ) AS `P2` ON `P1`.`title`=`P2`.`title`
+            WHERE `P2`.`title` IS NULL";
         return $this->query($query);
     }
 
