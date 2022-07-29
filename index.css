@@ -202,6 +202,7 @@ input:disabled.button {
 /*------------STILE MAIN------------*/
 
 #content {
+    grid-area: main;
     padding: 2em 4em;
 }
 
