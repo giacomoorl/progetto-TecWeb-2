@@ -68,20 +68,20 @@ class DBAccess {
 
     public function getComments($post) {
         $query = "SELECT *
-            FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
-            WHERE `POST`.`title`='$post' AND `COMMENTO`.`reply`='0';
-            ORDER BY `COMMENTO`.`date`";
+            FROM `POST` JOIN `COMMENTO` ON `POST`.`title`=`COMMENTO`.`post`
+            WHERE `POST`.`title`='$post' AND `COMMENTO`.`reply`='-1'
+            ORDER BY `COMMENTO`.`date` DESC";
         return $this->query($query);
     }
 
     public function getReplyComments($post,$id) {
       $query = "SELECT * FROM (
-                  SELECT *
-                      FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
+                  SELECT `POST`.`title`,`POST`.`user`,`COMMENTO`.`text`,`COMMENTO`.`date`,`COMMENTO`.`reply`
+                      FROM `POST` JOIN `COMMENTO` ON `POST`.`title`=`COMMENTO`.`post`
                       WHERE `POST`.`title`='$post'
-                )
-                WHERE `COMMENTO`.`reply`='$id'
-                ORDER BY `COMMENTO`.`date`";
+                ) AS t1
+                WHERE `t1`.`reply`='$id'
+                ORDER BY `t1`.`date` DESC";
       return $this->query($query);
     }
 
@@ -98,10 +98,9 @@ class DBAccess {
     }
 
     public function getNumPost($user) {
-      $query = "SELECT COUNT * FROM (
-                  SELECT *
-                  FROM `USER` JOIN `POST` ON `USER`.`username` = `POST`.`user`
-                ) WHERE `POST`.`user` = $user";
+      $query = "SELECT COUNT(*)
+                FROM `UTENTE` JOIN `POST` ON `POST`.`user`=`UTENTE`.`username`
+                WHERE `POST`.`user`='$user'";
       return $this->query($query);
     }
 

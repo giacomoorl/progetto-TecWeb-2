@@ -23,6 +23,7 @@ textarea {
 .comment-container {
   margin-left: 1em;
   border-left: dotted 2px blue;
+  border-bottom: solid 1px;
 }
 
 .head{
@@ -38,6 +39,21 @@ textarea {
     flex: 20%;
     padding-right: 1em;
 
+}
+
+.body .description .reply{
+  border-top: solid 1px grey;
+  font-size: 0.75em;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: "content date";
+  background-color: beige;
+}
+
+.body .description .reply p{
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .username {
@@ -75,6 +91,7 @@ textarea {
     box-shadow: 4px 6px #fff;
     cursor: pointer;
     float: right;
+    margin-top: 0.5em;
 }
 
 /* comment section */
@@ -83,7 +100,7 @@ textarea {
     display: none;
 }
 
-.comment-area textarea{
+.comment-area textarea, .reply-area textarea{
     width: 100%;
     min-height: 100px;
     padding: 10px;
