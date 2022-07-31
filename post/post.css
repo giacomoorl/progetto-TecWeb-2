@@ -1,7 +1,6 @@
 /*------------STILE POST------------*/
 
 #post {
-    grid-area: main;
     height: 100%;
     overflow-y: scroll;
 }

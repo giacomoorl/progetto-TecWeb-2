@@ -18,7 +18,7 @@ $HTMLPagination = "";
 if ($dbConnection) {
 
     $category = $_GET["category"] ? mysqli_real_escape_string($dbConnection, $_GET["category"]) : "all";
-    $HTMLPagination .= "<input type='text' name='category' value=$category />";
+    $HTMLPagination .= "<input type='text' name='category' value='$category' />";
     $page = $_GET["page"] ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
     $page = intval($page);
     $post = $db->getPostByCategoryByPage(
