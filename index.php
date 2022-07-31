@@ -28,7 +28,7 @@ if ($dbConnection) {
     foreach ($post as $p) {
         $HTMLPost .= "<div class='post'>
             <h3>
-                <a href='commenti/?post={$p["title"]}'>{$p["title"]}</a>
+                <a href='commenti/comments.php?post={$p["title"]}'>{$p["title"]}</a>
             </h3>
             <p class='author'>{$p["user"]}</p>
             <p class='date'>{$p["date"]}</p>
@@ -37,7 +37,7 @@ if ($dbConnection) {
     }
     $post = $db->getPostByCategory($category !== "all" ? $category : "' OR ''='");
     for ($pagination = 1; $pagination <= (count($post) / 10) + 1; ++$pagination) {
-        $HTMLPagination .= "<input 
+        $HTMLPagination .= "<input
             type='submit'
             name='page'
             value=$pagination

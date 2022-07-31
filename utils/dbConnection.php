@@ -7,7 +7,7 @@ class DBAccess {
     private const HOST_DB = "localhost";
     private const USERNAME = "root";
     private const PASSWORD = "root";
-    private const DATABASE_NAME = "forumm";
+    private const DATABASE_NAME = "forum";
 
     private $connection;
 
@@ -92,9 +92,40 @@ class DBAccess {
 
     public function getComments($post) {
         $query = "SELECT *
-            FROM `POST` JOIN `COMMENTO` ON `POST`.`id`=`COMMENTO`.`post`
-            WHERE `POST`.`title`='$post'";
+            FROM `POST` JOIN `COMMENTO` ON `POST`.`title`=`COMMENTO`.`post`
+            WHERE `POST`.`title`='$post' AND `COMMENTO`.`reply`='-1'
+            ORDER BY `COMMENTO`.`date` DESC";
         return $this->query($query);
+    }
+
+    public function getReplyComments($post,$id) {
+      $query = "SELECT * FROM (
+                  SELECT `POST`.`title`,`POST`.`user`,`COMMENTO`.`text`,`COMMENTO`.`date`,`COMMENTO`.`reply`
+                      FROM `POST` JOIN `COMMENTO` ON `POST`.`title`=`COMMENTO`.`post`
+                      WHERE `POST`.`title`='$post'
+                ) AS t1
+                WHERE `t1`.`reply`='$id'
+                ORDER BY `t1`.`date` DESC";
+      return $this->query($query);
+    }
+
+    public function commenta($post,$user,$text) {
+      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`) VALUES
+              ('$post', '$user', '$text')";
+      return $this->query($query);
+    }
+
+    public function rispondi($post,$user,$text,$id) {
+      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`,`id`) VALUES
+              ('$post', '$user', '$text',`$id`)";
+      return $this->query($query);
+    }
+
+    public function getNumPost($user) {
+      $query = "SELECT COUNT(*)
+                FROM `UTENTE` JOIN `POST` ON `POST`.`user`=`UTENTE`.`username`
+                WHERE `POST`.`user`='$user'";
+      return $this->query($query);
     }
 
 }

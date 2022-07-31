@@ -1,0 +1,120 @@
+main {
+  margin: 1em;
+  display: grid;
+  grid-template-rows: 10% auto;
+  grid-template-areas:
+    "indietro"
+    "postBlock";
+}
+
+textarea {
+  resize: none;
+}
+
+.button {
+  color: white;
+  background-color: blue;
+}
+
+.topic-container {
+  border: solid;
+}
+
+.comment-container {
+  margin-left: 1em;
+  border-left: dotted 2px blue;
+  border-bottom: solid 1px;
+}
+
+.head{
+    display: flex;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 1.5em;
+    background-color: blue;
+    color: white;
+}
+
+.authors{
+    flex: 20%;
+    padding-right: 1em;
+
+}
+
+.body .description .reply{
+  border-top: solid 1px grey;
+  font-size: 0.75em;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: "content date";
+  background-color: beige;
+}
+
+.body .description .reply p{
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.username {
+  color: red;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.description{
+    flex: 80%;
+    padding-left: 1em;
+    border-left: solid 1px;
+}
+
+.body , .topic-body{
+    display: flex;
+
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.body .authors .username{
+    font-size: 20px;
+}
+
+.body .authors img{
+    max-width: 50px;
+    max-height: 80px;
+}
+
+.body .description .comment button{
+    border:none;
+    padding:10px;
+    font-weight: bolder;
+    box-shadow: 4px 6px #fff;
+    cursor: pointer;
+    float: right;
+    margin-top: 0.5em;
+}
+
+/* comment section */
+.comment-area{
+    margin-bottom:50px;
+    display: none;
+}
+
+.comment-area textarea, .reply-area textarea{
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    margin-block: 10px;
+    background-color: beige;
+}
+
+.comment-area input{
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comment-area input:hover{
+    border: solid 1px #000000;
+}
