@@ -7,7 +7,7 @@ class DBAccess {
     private const HOST_DB = "localhost";
     private const USERNAME = "root";
     private const PASSWORD = "root";
-    private const DATABASE_NAME = "forum";
+    private const DATABASE_NAME = "forumm";
 
     private $connection;
 

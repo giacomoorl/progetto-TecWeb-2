@@ -14,14 +14,13 @@
         <div id="title">
             <h1>forumm</h1>
         </div>
-        <div id="search">
-            <div class="search-icon">
-                <span class="search-icon-0"></span>
-                <span class="search-icon-1"></span>
-                <span class="search-icon-2"></span>
+        <form id="search" method="get" action="./">
+            <label id="search-label" for="search-input">Cerca un post:</label>
+            <input id="search-input" type="text" name="title" placeholder="Cerca un post..." />
+            <div id="search-submit">
+                <input type="submit" value="Invia" />
             </div>
-            <input type="text" placeholder="Cerca..." />
-        </div>
+        </form>
         <div id="login" class="button">
             <a href="">Accedi</a>
         </div>

@@ -94,56 +94,45 @@ input:disabled.button {
     border-bottom: 1px solid white;
 }
 
-#search > input {
-    position: absolute;
-    left: 3.5em;
-    height: 3em;
+#search-label {
+    display: block;
     width: 100%;
-    background-color: inherit;
+    visibility: hidden;
+    font-size: .75em;
+}
+
+#search-input {
+    width: 75%;
+    background-color: blue;
+    color: white;
     caret-color: white;
 }
 
-#search > ::placeholder {
+#search-input::placeholder {
     color: white;
+    opacity: 1;
 }
 
-.search-icon {
-    display: inline-block;
+#search-submit {
     position: relative;
-    width: 3em;
-    height: 3em;
+    bottom: -1em;
+    width: 23%;
+    padding: .1em 0;
 }
 
-.search-icon > * {
-    display: block;
+#search-submit > input {
     position: absolute;
-}
-
-.search-icon-0 {
-    width: 1.5em;
-    height: .5em;
-    bottom: 0.75em;
-    border-radius: .25em;
+    bottom: 0;
+    right: 0;
+    padding: .5em;
     background-color: white;
-    transform: rotate(-45deg);
+    color: blue;
+    border-radius: .5em;
+    cursor: pointer;
 }
 
-.search-icon-1 {
-    width: 1.5em;
-    height: 1.5em;
-    bottom: 1em;
-    left: .75em;
-    border-radius: 1em;
-    background-color: white;
-}
-
-.search-icon-2 {
-    width: 1em;
-    height: 1em;
-    left: 1em;
-    bottom: 1.25em;
-    border-radius: .75em;
-    background-color: blue;
+#search-input, #search-submit {
+    display: inline-block;
 }
 
 #login {
