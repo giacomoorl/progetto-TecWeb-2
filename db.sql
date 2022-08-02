@@ -9,15 +9,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `UTENTE` (
     `username` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-    `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+    `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+    `administrator` boolean DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `UTENTE`
 --
 
-INSERT INTO `UTENTE` (`username`, `password`) VALUES
-('user', 'user');
+INSERT INTO `UTENTE` (`username`, `password`, `administrator`) VALUES
+('user', 'user', 'true');
 
 -- ----------------------------------------------------------
 

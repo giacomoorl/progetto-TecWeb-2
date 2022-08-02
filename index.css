@@ -222,10 +222,12 @@ form .submit {
     width: 80%;
     margin: 1rem auto;
   }
+
 #signup {
     color: blue;
     background-color: white;
 }
+
 #signup form, #login form  {
     height: 100%;
     width: 480em;

@@ -2,10 +2,10 @@
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-require_once "./utils/dbConnection.php";
+require_once "../utils/dbConnection.php";
 use DB\DBAccess;
 
-require_once "./utils/utilityFunctions.php";
+require_once "../utils/utilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
 $db = new DBAccess();
@@ -23,17 +23,17 @@ if ($dbConnection) {
         $_SESSION["isAdmin"]=false;
         $_SESSION["username"] = $user;
         $db->closeDBConnection();
-        header("Location: ..index.php");
+        header("Location: ../index.php");
     }
     else
     {
-        require_once "UtilityFunctions.php";
+        require_once "../utils/utilityFunctions.php";
         $messaggio = "<p class=\"alert-box danger\" id=\"datiNonCorretti\">Nome utente già in uso!</p>";
         $nuovo = array(
             "<msgErrore />" => $messaggio
         );
 
-        echo UtilityFunctions::replacer("../login/signup.html", $nuovo);
+        echo UtilityFunctions::replace("../login/signup.html", $nuovo);
     }
 }
 $db->closeDBConnection();
