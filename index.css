@@ -211,3 +211,24 @@ input:disabled.button {
 }
 
 /*------------FINE STILE FOOTER------------*/
+
+/*------------STILE LOGIN e SIGNUP------------*/
+form .submit {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+#signup {
+    color: blue;
+    background-color: white;
+}
+
+#signup form, #login form  {
+    height: 100%;
+    width: 480em;
+    padding: 3em;
+    background-color: white;
+    border-width: 1em;
+    border-radius: 1em;
+}
+/*------------FINE STILE LOGIN e SIGNUP------------*/
