@@ -28,7 +28,7 @@ if ($dbConnection) {
     foreach ($post as $p) {
         $HTMLPost .= "<div class='post'>
             <h3>
-                <a href='commenti/?post={$p["title"]}'>{$p["title"]}</a>
+                <a href='commenti/?title={$p["title"]}'>{$p["title"]}</a>
             </h3>
             <p class='author'>{$p["user"]}</p>
             <p class='date'>{$p["date"]}</p>

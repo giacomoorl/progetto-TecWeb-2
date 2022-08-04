@@ -109,25 +109,11 @@ class DBAccess {
       return $this->query($query);
     }
 
-    public function commenta($post,$user,$text) {
-      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`) VALUES
-              ('$post', '$user', '$text')";
-      return $this->query($query);
+    public function reply($post, $user, $text, $id) {
+      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`, `reply`) VALUES
+              ('$post', '$user', '$text', '$id')";
+      return mysqli_query($this->connection, $query);
     }
-
-    public function rispondi($post,$user,$text,$id) {
-      $query = "INSERT INTO `COMMENTO` (`post`, `user`, `text`,`id`) VALUES
-              ('$post', '$user', '$text',`$id`)";
-      return $this->query($query);
-    }
-
-    public function getNumPost($user) {
-      $query = "SELECT COUNT(*)
-                FROM `UTENTE` JOIN `POST` ON `POST`.`user`=`UTENTE`.`username`
-                WHERE `POST`.`user`='$user'";
-      return $this->query($query);
-    }
-
 }
 
 ?>

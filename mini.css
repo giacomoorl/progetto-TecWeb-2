@@ -1,0 +1,27 @@
+* {
+    font-size: .95em;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto auto auto 100vh auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+            "header"
+            "breadcrumb"
+            "sidebar"
+            "main"
+            "footer";
+}
+
+#sidebar {
+    border-image: linear-gradient(to left, white 25%, blue 50%, white 75%) 100;
+    border-right: 0;
+    border-bottom: 1px solid;
+}
+
+#categories li {
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+}
