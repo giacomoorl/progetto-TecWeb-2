@@ -114,6 +114,56 @@ class DBAccess {
               ('$post', '$user', '$text', '$id')";
       return mysqli_query($this->connection, $query);
     }
+
+    public function getLogin($user, $pass)
+    {
+        $Username = mysqli_real_escape_string($this->connection, $user);
+        $Password = mysqli_real_escape_string($this->connection, $pass);
+        $sql = "SELECT *
+            FROM `UTENTE`
+            WHERE BINARY `username` = '$Username' AND `password` = '$Password'";
+        $result = mysqli_query($this->connection, $sql);
+
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+
+            return array(////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                "isValid" => true,
+                "user" => $user["username"],
+                "isAdmin" => $user["administrator"]
+            );
+        }
+        return array(
+            "isValid" => false,
+            "user" => null,
+            "isAdmin" => false
+        );
+        return $this->query($query);
+    }
+
+    public function newAccount($user, $pass)
+    {
+        $Username = mysqli_real_escape_string($this->connection, $user);
+        $Password = md5(mysqli_real_escape_string($this->connection, $pass));
+        $sql = sprintf("SELECT *
+            FROM UTENTE
+            WHERE username='$Username' OR email='$Password'");
+
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) == 0) {
+            //Nessun utente trovato con quel username o email, quindi creazione disponibile
+            $sql = sprintf("INSERT INTO `UTENTE` (`username`, `password`)
+        VALUES ('$Username', '$Password')");
+            $result = mysqli_query($this->connection, $sql);
+
+            return ($result == true);
+            //ritorna true SSE l'utente è stato creato
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 ?>
