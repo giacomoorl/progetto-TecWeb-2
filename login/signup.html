@@ -4,8 +4,14 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta charset="UTF-8" />
-    <link href="../index.css" rel="stylesheet" />
-    <link href="../post/post.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" type="text/css" />
+    <link href="login.css" rel="stylesheet" type="text/css" />
+    <link
+            media="screen and (max-width: 700px), only screen and (max-width: 600px)"
+            href="../mini.css"
+            rel="stylesheet"
+            type="text/css"
+    />
     <script type="text/javascript" src="../index.js"></script>
     <title>forumm</title>
 </head>
@@ -14,37 +20,52 @@
         <div id="title">
             <h1>forumm</h1>
         </div>
-        <div id="search">
-            <div class="search-icon">
-                <span class="search-icon-0"></span>
-                <span class="search-icon-1"></span>
-                <span class="search-icon-2"></span>
+        <form id="search" method="get" action="../ricerca">
+            <label id="search-label" for="search-input">Cerca un post:</label>
+            <input id="search-input" type="text" name="title" placeholder="Cerca un post..." />
+            <div id="search-submit">
+                <input type="submit" value="Invia" />
             </div>
-            <input type="text" placeholder="Cerca..." />
-        </div>
+        </form>
         <div id="login" class="button">
-            <a href="../login/login.html">Accedi</a>
+            <a href="../login/login.php">Accedi</a>
         </div>
     </header>
     <div id="breadcrumb">
         <p>Ti trovi in: Registrati</p>
     </div>
-        <main>
-            <div id="signup" class="">
-                <form id="signup form" action="../login/signup.php" method="post">
+        <main id="content">
+            <div id="login-container" class="">
+                <form id="login-form" action="../login/signup.php" method="post">
                     <fieldset>
                         <legend>
                             <h2>Registrati</h2>
                         </legend>
                         <msgErrore />
-                        <label for="username" lang="en">Username:</label>
-                        <input type="text" name="username" id="username" autocomplete="username" placeholder="Inserisci un username:" required />
-                        <label for="pwd" lang="en">Password: </label>
-                        <input type="password" name="pwd" id="pwd" autocomplete="current-password" placeholder="Inserisci la password:" required />
-                        <div class="submit">
-                            <input type="submit" id="registrazione" class="" name="registrazione" value="REGISTRATI" />
+                        <div class="credentials">
+                            <label for="username" lang="en">Username:</label>
+                            <input
+                                type="text"
+                                name="username"
+                                id="username"
+                                autocomplete="username"
+                                placeholder="Inserisci un username:"
+                                required="required"
+                            />
+                            <label for="pwd" lang="en">Password: </label>
+                            <input
+                                type="password"
+                                name="pwd"
+                                id="pwd"
+                                autocomplete="current-password"
+                                placeholder="Inserisci la password:"
+                                required="required"
+                            />
                         </div>
-                        <div>Hai un account? <a href="../login/login.html">Accedi!</a></div>
+                        <div class="submit">
+                            <input class="button reverse" type="submit" id="registrazione" name="registrazione" value="REGISTRATI" />
+                            <p>Hai un account? <a href="../login/login.php">Accedi!</a></p>
+                        </div>
                     </fieldset>
                 </form>
             </div>

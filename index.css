@@ -60,6 +60,13 @@ body {
     font-weight: 600;
     color: blue;
     background-color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.button.reverse {
+    background-color: blue;
+    color: white;
 }
 
 input.button:not(:disabled) {
@@ -135,9 +142,12 @@ input:disabled.button {
     display: inline-block;
 }
 
+#login, #signup {
+    display: inline-block;
+}
+
 #login {
-    color: blue;
-    background-color: white;
+    padding: 1em 2em;
 }
 
 /*------------FINE STILE HEADER------------*/

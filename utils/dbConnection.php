@@ -147,7 +147,7 @@ class DBAccess {
         $Password = md5(mysqli_real_escape_string($this->connection, $pass));
         $sql = sprintf("SELECT *
             FROM UTENTE
-            WHERE username='$Username' OR email='$Password'");
+            WHERE username='$Username'");
 
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) == 0) {

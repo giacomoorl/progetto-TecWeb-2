@@ -9,7 +9,7 @@ use DB\DBAccess;
 $db = new DBAccess();
 $dbConnection = $db->openDBConnection();
 if ($dbConnection) {
-    $user = $_SESSION["email"];
+    $user = $_SESSION["username"];
     $post = $_GET["title"];
     if ($user && $post) {
         $comment = $_GET["id"] !== null ? $_GET["id"] : -1;
@@ -23,6 +23,6 @@ if ($dbConnection) {
 
 $db->closeDBConnection();
 
-include "index.php";
+header("Location: index.php?title={$_GET["title"]}");
 
 ?>
