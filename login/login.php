@@ -15,6 +15,7 @@ $dbConnection = $db->openDBConnection();
 if ($dbConnection) {
     $user = $_POST["username"];
     $pass = $_POST["pwd"];
+
     if ($user && $pass) {
         $loginOK = $db->getLogin($user, $pass);
         $_SESSION["isValid"] = $loginOK["isValid"];
