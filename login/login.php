@@ -33,7 +33,7 @@ if ($dbConnection) {
             "<msgErrore />" => $messaggio
         );
 
-        echo UtilityFunctions::replace("../login/login.html", $nuovo);
+        echo UtilityFunctions::replace("./login.html", $nuovo);
     }
 }
 $db->closeDBConnection();
