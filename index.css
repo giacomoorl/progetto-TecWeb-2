@@ -41,7 +41,7 @@ a:visited {
 
 body {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     grid-template-rows: auto auto 100vh auto;
     grid-template-areas:
             "header header"
@@ -60,6 +60,13 @@ body {
     font-weight: 600;
     color: blue;
     background-color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.button.reverse {
+    background-color: blue;
+    color: white;
 }
 
 input.button:not(:disabled) {
@@ -94,61 +101,53 @@ input:disabled.button {
     border-bottom: 1px solid white;
 }
 
-#search > input {
-    position: absolute;
-    left: 3.5em;
-    height: 3em;
+#search-label {
+    display: block;
     width: 100%;
-    background-color: inherit;
+    visibility: hidden;
+    font-size: .75em;
+}
+
+#search-input {
+    width: 75%;
+    background-color: blue;
+    color: white;
     caret-color: white;
 }
 
-#search > ::placeholder {
+#search-input::placeholder {
     color: white;
+    opacity: 1;
 }
 
-.search-icon {
-    display: inline-block;
+#search-submit {
     position: relative;
-    width: 3em;
-    height: 3em;
+    bottom: -1em;
+    width: 23%;
+    padding: .1em 0;
 }
 
-.search-icon > * {
-    display: block;
+#search-submit > input {
     position: absolute;
-}
-
-.search-icon-0 {
-    width: 1.5em;
-    height: .5em;
-    bottom: 0.75em;
-    border-radius: .25em;
+    bottom: 0;
+    right: 0;
+    padding: .5em;
     background-color: white;
-    transform: rotate(-45deg);
+    color: blue;
+    border-radius: .5em;
+    cursor: pointer;
 }
 
-.search-icon-1 {
-    width: 1.5em;
-    height: 1.5em;
-    bottom: 1em;
-    left: .75em;
-    border-radius: 1em;
-    background-color: white;
+#search-input, #search-submit {
+    display: inline-block;
 }
 
-.search-icon-2 {
-    width: 1em;
-    height: 1em;
-    left: 1em;
-    bottom: 1.25em;
-    border-radius: .75em;
-    background-color: blue;
+#login, #signup {
+    display: inline-block;
 }
 
 #login {
-    color: blue;
-    background-color: white;
+    padding: 1em 2em;
 }
 
 /*------------FINE STILE HEADER------------*/
@@ -167,7 +166,7 @@ input:disabled.button {
 
 #sidebar {
     grid-area: sidebar;
-    border-image: linear-gradient(rgba(0, 0, 255, 0), blue, rgba(0, 0, 255, 0)) 1 100%;
+    border-image: linear-gradient(white 10%, blue 50%, white 90%) 1 100%;
     border-right: 1px solid;
 }
 
@@ -202,7 +201,13 @@ input:disabled.button {
 /*------------STILE MAIN------------*/
 
 #content {
+    grid-area: main;
     padding: 2em 4em;
+}
+
+#content > div {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 /*------------FINE STILE MAIN------------*/

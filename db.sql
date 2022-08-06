@@ -63,15 +63,16 @@ CREATE TABLE `COMMENTO` (
     `post` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
     `user` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
     `text` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-    `date` timestamp NOT NULL DEFAULT current_timestamp()
+    `date` timestamp NOT NULL DEFAULT current_timestamp(),
+    `reply` int(11) DEFAULT -1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `POST`
 --
 
-INSERT INTO `COMMENTO` (`id`, `post`, `user`, `text`, `date`) VALUES
-(0, 'Titolo post', 'user', 'Hello world!', '2022-07-22 12:00:00');
+INSERT INTO `COMMENTO` (`id`, `post`, `user`, `text`, `date`, `reply`) VALUES
+(0, 'Titolo post', 'user', 'Hello world!', '2022-07-22 12:00:00', '-1');
 
 -- ----------------------------------------------------------
 
