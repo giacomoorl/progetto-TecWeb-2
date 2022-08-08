@@ -9,14 +9,20 @@ use DB\DBAccess;
 require_once "../utils/utilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
+if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
+{
+    header("Location: ../index.php");
+}
+
 $db = new DBAccess();
 $dbConnection = $db->openDBConnection();
 
 if ($dbConnection) {
-    $user = $_POST["username"];
-    $pass = $_POST["pwd"];
 
-    if ($user && $pass) {
+
+    if (isset($_POST["username"]) && isset($_POST["pwd"])) {
+        $user = $_POST["username"];
+        $pass = $_POST["pwd"];
         $loginOK = $db->getLogin($user, $pass);
         $_SESSION["isValid"] = $loginOK["isValid"];
         $_SESSION["isAdmin"] = $loginOK["isAdmin"];
@@ -29,10 +35,10 @@ if ($dbConnection) {
             $nuovo = array(
                 "<msgErrore />" => $messaggio
             );
-            echo UtilityFunctions::replace("login.html", $nuovo);
+            echo UtilityFunctions::replace("../login/login.html", $nuovo);
         }
     } else {
-        echo UtilityFunctions::replace("login.html", array("<msgErrore />" => ""));
+        echo UtilityFunctions::replace("../login/login.html", array("<msgErrore />" => ""));
     }
 }
 

@@ -8,14 +8,19 @@ use DB\DBAccess;
 require_once "../utils/utilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
+if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
+{
+    header("Location: ../index.php");
+}
+
 $db = new DBAccess();
 $dbConnection = $db->openDBConnection();
 
 if ($dbConnection) {
 
-    $user = $_POST["username"];
-    $pass = $_POST["pwd"];
-    if ($user && $pass) {
+    if (isset($_POST["username"]) && isset($_POST["pwd"])) {
+        $user = $_POST["username"];
+        $pass = $_POST["pwd"];
         $creazioneOK = $db->newAccount($user, $pass);
         if($creazioneOK)
         {
@@ -36,7 +41,7 @@ if ($dbConnection) {
             echo UtilityFunctions::replace("../login/signup.html", $nuovo);
         }
     } else {
-        echo UtilityFunctions::replace("signup.html", array("<msgErrore />" => ""));
+        echo UtilityFunctions::replace("../login/signup.html", array("<msgErrore />" => ""));
     }
 }
 $db->closeDBConnection();

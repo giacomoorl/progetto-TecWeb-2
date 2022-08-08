@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "root";
-    private const PASSWORD = "root";
-    private const DATABASE_NAME = "forumm";
+    private const USERNAME = "mvignaga";
+    private const PASSWORD = "ohthohXie5aichah";
+    private const DATABASE_NAME = "mvignaga";
 
     private $connection;
 
@@ -118,7 +118,7 @@ class DBAccess {
     public function getLogin($user, $pass)
     {
         $Username = mysqli_real_escape_string($this->connection, $user);
-        $Password = mysqli_real_escape_string($this->connection, $pass);
+        $Password = md5(mysqli_real_escape_string($this->connection, $pass));
         $sql = "SELECT *
             FROM `UTENTE`
             WHERE BINARY `username` = '$Username' AND `password` = '$Password'";
@@ -127,7 +127,7 @@ class DBAccess {
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
 
-            return array(////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            return array(
                 "isValid" => true,
                 "user" => $user["username"],
                 "isAdmin" => $user["administrator"]
@@ -163,6 +163,13 @@ class DBAccess {
         {
             return false;
         }
+    }
+
+    public function deleteAccount($user) {
+        $Username = mysqli_real_escape_string($this->connection, $user);
+        $query = "DELETE FROM UTENTE WHERE username = '$Username'";
+        $result = mysqli_query($this->connection, $query);
+        return ($result == true);
     }
 }
 

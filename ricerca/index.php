@@ -47,11 +47,32 @@ $count = count($post);
 $search = "<p>Risultati della ricerca di {$_GET["title"]} ($count elementi):</p>";
 $HTMLPost = $search.$HTMLPost;
 
+$loginEffettuato="";
+if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
+{
+    $loginEffettuato="<div id='logout' class='button'><a href='./logout.php'>Logout</a></div>
+    <div id='elimina' class='button'><a href='./deleteAccount.php'>Elimina Account</a></div>";
+}
+else
+{
+$loginEffettuato="<div id=\"login\" class=\"button\">
+<a href=\"login/login.php\">Accedi</a>
+</div>
+<div id=\"signup\" class=\"button\">
+<a href=\"login/signup.php\">Registrati</a>
+</div>";
+}
 echo UtilityFunctions::replace(
     "ricerca.html",
     [
         "<post />" => $HTMLPost,
-        "<pages />" => $HTMLPagination
+        "<pages />" => $HTMLPagination,
+        "<div id=\"login\" class=\"button\">
+        <a href=\"../login/login.php\">Accedi</a>
+        </div>
+        <div id=\"signup\" class=\"button\">
+        <a href=\"../login/signup.php\">Registrati</a>
+        </div>"=>$loginEffettuato
     ]
 );
 
