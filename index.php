@@ -17,9 +17,9 @@ $HTMLPagination = "";
 
 if ($dbConnection) {
 
-    $category = $_GET["category"] ? mysqli_real_escape_string($dbConnection, $_GET["category"]) : "all";
+    $category = isset($_GET["category"]) ? mysqli_real_escape_string($dbConnection, $_GET["category"]) : "all";
     $HTMLPagination .= "<input type='text' name='category' value='$category' />";
-    $page = $_GET["page"] ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
+    $page = isset($_GET["page"]) ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
     $page = intval($page);
     $post = $db->getPostByCategoryByPage(
         $category !== "all" ? $category : "' OR ''='",
@@ -50,7 +50,7 @@ if ($dbConnection) {
 $loginEffettuato="";
 if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
 {
-    $loginEffettuato="<div id='logout' class='button'><a href='./logout.php'>Logout</a></div>
+    $loginEffettuato="<div id='logout' class='button'><a href='login/logout.php'>Logout</a></div>
     <div id='elimina' class='button'><a href='./deleteAccount.php'>Elimina Account</a></div>";
 }
 else

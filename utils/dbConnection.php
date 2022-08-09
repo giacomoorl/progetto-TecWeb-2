@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mvignaga";
-    private const PASSWORD = "ohthohXie5aichah";
-    private const DATABASE_NAME = "mvignaga";
+    private const USERNAME = "mmasetto";
+    private const PASSWORD = "iyuyiSohS5oochu3";
+    private const DATABASE_NAME = "mmasetto";
 
     private $connection;
 

@@ -42,20 +42,22 @@
 }
 
 .author, .date {
-    font-size: .75em;
+    font-size: .8em;
     color: lightslategray;
 }
 
-.comment-container { border-radius: .5em; }
+.comment-container {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: .5em;
+}
 
 .comment-container.left {
-    padding: .5em 0 0 .5em;
     background-image: linear-gradient(to right, navy 50%, blue);
 }
 
 .comment-container.right {
-    padding: .5em .5em 0 0;
-    background-image: linear-gradient(to left, navy 50%, blue);
+    background-image: linear-gradient(to left,  navy 50%, blue);
 }
 
 .comment {
@@ -64,6 +66,7 @@
     margin-bottom: 1em;
     background-color: white;
     border-radius: 1em;
+    overflow: auto;
 }
 
 .reply {
@@ -78,7 +81,6 @@
 
 .replies {
     width: 75%;
-    margin-bottom: 1em;
 }
 
 .replies.left .reply {
@@ -90,11 +92,11 @@
 }
 
 .comment.left, .replies.left {
-    margin: 0 auto 1em 0;
+    margin-left: 0;
 }
 
 .comment.right, .replies.right {
-    margin: 0 0 1em auto;
+    margin-left: auto;
 }
 
 .replies.right .reply-form form {
