@@ -248,9 +248,12 @@ form .submit {
 #error404{
  background-color: blue;
  color: white;
-
+ overflow: hidden;
 }
 #error404 a{
  color:white;
+}
+#img_error{
+	width:35em;
 }
 /*------------FINE STILE PAGINA ERRORE---------------*/
