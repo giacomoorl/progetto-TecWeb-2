@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Ago 09, 2022 alle 16:32
+-- Creato il: Ago 09, 2022 alle 18:46
 -- Versione del server: 10.3.34-MariaDB-0ubuntu0.20.04.1
 -- Versione PHP: 7.4.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `mvignaga`
 --
+CREATE DATABASE IF NOT EXISTS `mvignaga` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `mvignaga`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `COMMENTO`
 --
 
+DROP TABLE IF EXISTS `COMMENTO`;
 CREATE TABLE `COMMENTO` (
   `id` int(11) NOT NULL,
   `post` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
@@ -36,12 +39,25 @@ CREATE TABLE `COMMENTO` (
   `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Svuota la tabella prima dell'inserimento `COMMENTO`
+--
+
+TRUNCATE TABLE `COMMENTO`;
+--
+-- Dump dei dati per la tabella `COMMENTO`
+--
+
+INSERT INTO `COMMENTO` (`id`, `post`, `user`, `text`, `date`) VALUES
+(0, 'Titolo post', 'user', 'Hello world!', '2022-07-22 12:00:00');
+
 -- --------------------------------------------------------
 
 --
 -- Struttura della tabella `POST`
 --
 
+DROP TABLE IF EXISTS `POST`;
 CREATE TABLE `POST` (
   `title` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
   `user` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
@@ -50,18 +66,47 @@ CREATE TABLE `POST` (
   `description` varchar(319) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Svuota la tabella prima dell'inserimento `POST`
+--
+
+TRUNCATE TABLE `POST`;
+--
+-- Dump dei dati per la tabella `POST`
+--
+
+INSERT INTO `POST` (`title`, `user`, `category`, `date`, `description`) VALUES
+('Titolo post', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 10', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 11', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 12', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 2', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 3', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 4', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 5', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 6', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 7', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 8', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post'),
+('Titolo post - 9', 'user', 'politic', '2022-07-22 12:00:00', 'Descrizione post');
+
 -- --------------------------------------------------------
 
 --
 -- Struttura della tabella `UTENTE`
 --
 
+DROP TABLE IF EXISTS `UTENTE`;
 CREATE TABLE `UTENTE` (
   `username` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `administrator` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Svuota la tabella prima dell'inserimento `UTENTE`
+--
+
+TRUNCATE TABLE `UTENTE`;
 --
 -- Dump dei dati per la tabella `UTENTE`
 --
