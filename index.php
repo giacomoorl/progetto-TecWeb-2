@@ -17,9 +17,9 @@ $HTMLPagination = "";
 
 if ($dbConnection) {
 
-    $category = $_GET["category"] ? mysqli_real_escape_string($dbConnection, $_GET["category"]) : "all";
+    $category = isset($_GET["category"]) ? mysqli_real_escape_string($dbConnection, $_GET["category"]) : "all";
     $HTMLPagination .= "<input type='text' name='category' value='$category' />";
-    $page = $_GET["page"] ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
+    $page = isset($_GET["page"]) ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
     $page = intval($page);
     $post = $db->getPostByCategoryByPage(
         $category !== "all" ? $category : "' OR ''='",

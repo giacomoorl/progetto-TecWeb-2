@@ -50,16 +50,21 @@ $HTMLPost = $search.$HTMLPost;
 $loginEffettuato="";
 if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
 {
+
+    echo "ciao";
+    die;
     $loginEffettuato="<div id='logout' class='button'><a href='./logout.php'>Logout</a></div>
     <div id='elimina' class='button'><a href='./deleteAccount.php'>Elimina Account</a></div>";
 }
 else
 {
+    echo "aaaaa";
+    die;
 $loginEffettuato="<div id=\"login\" class=\"button\">
-<a href=\"login/login.php\">Accedi</a>
+<a href=\"../login/login.php\">Accedi</a>
 </div>
 <div id=\"signup\" class=\"button\">
-<a href=\"login/signup.php\">Registrati</a>
+<a href=\"../login/signup.php\">Registrati</a>
 </div>";
 }
 echo UtilityFunctions::replace(
@@ -69,10 +74,10 @@ echo UtilityFunctions::replace(
         "<pages />" => $HTMLPagination,
         "<div id=\"login\" class=\"button\">
         <a href=\"../login/login.php\">Accedi</a>
-        </div>
-        <div id=\"signup\" class=\"button\">
+    </div>
+    <div id=\"signup\" class=\"button\">
         <a href=\"../login/signup.php\">Registrati</a>
-        </div>"=>$loginEffettuato
+    </div>"=>$loginEffettuato
     ]
 );
 
