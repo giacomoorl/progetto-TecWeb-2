@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `mvignaga`
 --
-CREATE DATABASE IF NOT EXISTS `mvignaga` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `mvignaga`;
 
 -- --------------------------------------------------------
 
