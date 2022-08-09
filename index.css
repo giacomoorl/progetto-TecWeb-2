@@ -242,12 +242,3 @@ form .submit {
     border-radius: 1em;
 }
 /*------------FINE STILE LOGIN e SIGNUP------------*/
-
-/*------------STILE PAGINA ERRORE---------------*/
-
-#error404{
- background-color: blue;
- color: white;
-}
-
-/*------------FINE STILE PAGINA ERRORE---------------*/
