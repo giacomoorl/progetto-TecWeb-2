@@ -50,7 +50,7 @@ body {
             "footer footer";
 }
 
-#sidebar, #content, #footer {
+#sidebar, #content, #footer ,#error404{
     padding: 2em;
 }
 
