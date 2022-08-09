@@ -249,5 +249,7 @@ form .submit {
  background-color: blue;
  color: white;
 }
-
+#error404 a{
+	color:white;
+}
 /*------------FINE STILE PAGINA ERRORE---------------*/
