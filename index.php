@@ -35,11 +35,12 @@ if ($dbConnection) {
             <p>{$p["description"]}</p>";
 
             if(isset($_SESSION["isValid"])&&$_SESSION["isValid"]){
-              if($_SESSION["username"] == $p["user"] || $_SESSION["isAdmin"] == 1)
-                $messaggio .= "
+              if($_SESSION["username"] == $p["user"] || $_SESSION["isAdmin"] == 1){
+                $HTMLPost .= "
                   <a href='post/deletePost.php?title={$p["title"]}'>
                     <i class='fa fa-trash'></i>
                   </a>";
+              }
             }
 
           $HTMLPost .= "</div>";
@@ -64,11 +65,13 @@ if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
 }
 else
 {
-$loginEffettuato="<div id=\"login\" class=\"button\">
-<a href=\"login/login.php\">Accedi</a>
+$loginEffettuato="<div id=\"login-signup\">
+<div id=\"login\" class=\"button\">
+    <a href=\"login/login.php\">Accedi</a>
 </div>
 <div id=\"signup\" class=\"button\">
-<a href=\"login/signup.php\">Registrati</a>
+    <a href=\"login/signup.php\">Registrati</a>
+</div>
 </div>";
 }
 
@@ -77,12 +80,7 @@ $db->closeDBConnection();
 echo UtilityFunctions::replace(
     "post/post.html",
     ["<post />" => $HTMLPost, "<pages />" => $HTMLPagination,
-    "<div id=\"login\" class=\"button\">
-            <a href=\"login/login.php\">Accedi</a>
-        </div>
-        <div id=\"signup\" class=\"button\">
-            <a href=\"login/signup.php\">Registrati</a>
-        </div>"=>$loginEffettuato]
+    "<bottoni/>"=>$loginEffettuato]
 );
 
 ?>

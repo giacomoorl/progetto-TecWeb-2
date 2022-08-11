@@ -25,9 +25,9 @@ if ($dbConnection) {
         $pass = $_POST["pwd"];
         $loginOK = $db->getLogin($user, $pass);
         $_SESSION["isValid"] = $loginOK["isValid"];
-        $_SESSION["isAdmin"] = $loginOK["isAdmin"];
         if ($_SESSION["isValid"]) {
             $_SESSION["username"] = $loginOK["user"];
+            $_SESSION["isAdmin"] = $loginOK["isAdmin"];
             $db->closeDBConnection();
             header("Location: ../index.php");
         } else {
