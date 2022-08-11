@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mmasetto";
-    private const PASSWORD = "iyuyiSohS5oochu3";
-    private const DATABASE_NAME = "mmasetto";
+    private const USERNAME = "";
+    private const PASSWORD = "";
+    private const DATABASE_NAME = "";
 
     private $connection;
 
@@ -100,7 +100,7 @@ class DBAccess {
 
     public function getReplyComments($post,$id) {
       $query = "SELECT * FROM (
-                  SELECT `POST`.`title`,`POST`.`user`,`COMMENTO`.`text`,`COMMENTO`.`date`,`COMMENTO`.`reply`
+                  SELECT `POST`.`title`,`POST`.`user`,`COMMENTO`.`id` AS `cId`,`COMMENTO`.`user` AS `cUser`,`COMMENTO`.`text`,`COMMENTO`.`date`,`COMMENTO`.`reply`
                       FROM `POST` JOIN `COMMENTO` ON `POST`.`title`=`COMMENTO`.`post`
                       WHERE `POST`.`title`='$post'
                 ) AS t1
@@ -171,6 +171,31 @@ class DBAccess {
         $result = mysqli_query($this->connection, $query);
         return ($result == true);
     }
+
+    public function deleteReply($id) {
+        $query = "DELETE FROM COMMENTO WHERE reply = '$id'";
+        $result = mysqli_query($this->connection, $query);
+        return ($result == true);
+    }
+
+    public function deleteComment($id) {
+        $query = "DELETE FROM COMMENTO WHERE id = '$id'";
+        $result = mysqli_query($this->connection, $query);
+        return ($result == true);
+    }
+
+    public function deleteOneReply($idc,$idr) {
+        $query = "DELETE FROM COMMENTO WHERE reply = '$idc' AND id='$idr'";
+        $result = mysqli_query($this->connection, $query);
+        return ($result == true);
+    }
+
+    public function deletePost($title) {
+        $query = "DELETE FROM POST WHERE title = '$title'";
+        $result = mysqli_query($this->connection, $query);
+        return ($result == true);
+    }
+
 }
 
 ?>

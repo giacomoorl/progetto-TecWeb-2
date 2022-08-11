@@ -10,14 +10,10 @@ $db = new DBAccess();
 $dbConnection = $db->openDBConnection();
 if ($dbConnection) {
     $user = $_SESSION["username"];
-    $post = $_GET["title"];
-    if ($user && $post) {
-        $comment = $_GET["id"] !== null ? $_GET["id"] : -1;
-        $text = $_POST["reply-".$comment]
-            ? : $_POST["comment"]
-                ? : null;
-        if ($text)
-            $reply = $db->reply($post, $user, $text, $comment);
+    $id = $_GET["id"];
+    if ($user) {
+      $reply = $db->deleteReply($id);
+      $comment = $db->deleteComment($id);
     }
 }
 

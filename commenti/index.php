@@ -38,7 +38,15 @@ if ($dbConnection) {
           <div class='comment $class'>
             <p class='author'>{$c["user"]}</p>
             <p class='date'>{$c["date"]}</p>
-            <p>{$c['text']}</p>
+            <p>{$c['text']}</p>";
+            if(isset($_SESSION["isValid"])&&$_SESSION["isValid"]){
+              if($_SESSION["username"] == $c["user"] || $_SESSION["isAdmin"] == 1)
+                $messaggio .= "
+                  <a href='deleteC.php?title={$mainPost[0]["title"]}&id={$c["id"]}'>
+                    <i class='fa fa-trash'></i>
+                  </a>";
+            }
+            $messaggio .="
           </div>";
       $messaggio .= "
         <div class='replies $class'>
@@ -46,9 +54,17 @@ if ($dbConnection) {
       foreach ($reply as $r) {
         $messaggio .= "
           <div class='reply'>
-            <p class='author'>{$r["user"]} in risposta a {$c["user"]}</p>
+            <p class='author'>{$r["cUser"]} in risposta a {$c["user"]}</p>
             <p class='date'>{$r["date"]}</p>
-            <p>{$r["text"]}</p>
+            <p>{$r["text"]}</p>";
+            if(isset($_SESSION["isValid"])&&$_SESSION["isValid"]){
+              if($_SESSION["username"] == $r["cUser"] || $_SESSION["username"] == 1)
+                $messaggio .= "
+                  <a href='deleteR.php?title={$mainPost[0]["title"]}&idC={$c["id"]}&idR={$r["cId"]}'>
+                    <i class='fa fa-trash' ></i>
+                  </a>";
+            }
+            $messaggio .="
           </div>
         ";
       }

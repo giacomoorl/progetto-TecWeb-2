@@ -32,8 +32,17 @@ if ($dbConnection) {
             </h3>
             <p class='author'>{$p["user"]}</p>
             <p class='date'>{$p["date"]}</p>
-            <p>{$p["description"]}</p>
-        </div>";
+            <p>{$p["description"]}</p>";
+
+            if(isset($_SESSION["isValid"])&&$_SESSION["isValid"]){
+              if($_SESSION["username"] == $p["user"] || $_SESSION["isAdmin"] == 1)
+                $messaggio .= "
+                  <a href='post/deletePost.php?title={$p["title"]}'>
+                    <i class='fa fa-trash'></i>
+                  </a>";
+            }
+
+          $HTMLPost .= "</div>";
     }
     $post = $db->getPostByCategory($category !== "all" ? $category : "' OR ''='");
     for ($pagination = 1; $pagination <= (count($post) / 10) + 1; ++$pagination) {
