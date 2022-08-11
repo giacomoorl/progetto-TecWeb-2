@@ -16,10 +16,10 @@ if(isset($_SESSION["isValid"])&&isset($_SESSION["username"])&&$_SESSION["isValid
         $del=$db->deleteAccount($user);
         if($del)
         {
-            ///////////account eliminato con successo
-        }
-        else
-        {
+            if(isset($_SESSION))
+            {
+                session_destroy();
+            }
         }
     }
         

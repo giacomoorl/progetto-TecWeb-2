@@ -95,27 +95,24 @@ if ($dbConnection) {
 $loginEffettuato="";
 if(isset($_SESSION["isValid"])&&$_SESSION["isValid"])
 {
-    $loginEffettuato="<div id='logout' class='button'><a href='../login/logout.php'>Logout</a></div>
-    <div id='elimina' class='button'><a href='./deleteAccount.php'>Elimina Account</a></div>";
+  $loginEffettuato="<div id=\"login-signup\"><div id='logout' class='button'><a href='./login/logout.php'>Logout</a></div>
+  <div id='elimina' class='button'><a href='./deleteAccount.php'>Elimina Account</a></div></div>";
 }
 else
 {
-$loginEffettuato="<div id=\"login\" class=\"button\">
-<a href=\"../login/login.php\">Accedi</a>
+$loginEffettuato="<div id=\"login-signup\">
+<div id=\"login\" class=\"button\">
+    <a href=\"../login/login.php\">Accedi</a>
 </div>
 <div id=\"signup\" class=\"button\">
-<a href=\"../login/signup.php\">Registrati</a>
+    <a href=\"../login/signup.php\">Registrati</a>
+</div>
 </div>";
 }
 echo UtilityFunctions::replace("comments.html", 
 [
   "<comments />" => $messaggio,
-  "<div id=\"login\" class=\"button\">
-  <a href=\"../login/login.php\">Accedi</a>
-  </div>
-  <div id=\"signup\" class=\"button\">
-  <a href=\"../login/signup.php\">Registrati</a>
-  </div>"=>$loginEffettuato
+  "<bottoni/>"=>$loginEffettuato
       ]);
 
 ?>
