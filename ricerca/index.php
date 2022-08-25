@@ -17,8 +17,7 @@ $HTMLPagination = "";
 $post = array();
 
 if ($dbConnection) {
-
-    $title = $_GET["title"] ? mysqli_real_escape_string($dbConnection, $_GET["title"]) : "";
+	$title = $_GET["title"] ? mysqli_real_escape_string($dbConnection, $_GET["title"]) : "";
     $HTMLPagination .= "<input type='text' name='title' value='$title' />";
     $page = $_GET["page"] ? mysqli_real_escape_string($dbConnection, $_GET["page"]) : '1';
     $page = intval($page);
