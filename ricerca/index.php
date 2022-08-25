@@ -47,7 +47,7 @@ if ($dbConnection) {
 
 $db->closeDBConnection();
 $count = count($post);
-$search = "<p id="titolo_post"> Risultati della ricerca di {$_GET["title"]} ($count elementi):</p>";
+$search = "<p id='titolo_post'> Risultati della ricerca di {$_GET["title"]} ($count elementi):</p>";
 $HTMLPost = $search.$HTMLPost;
 
 $loginEffettuato="";
