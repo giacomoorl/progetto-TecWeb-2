@@ -114,6 +114,11 @@ input:disabled.button {
     background-color: blue;
 }
 
+#titolo_post{
+    color:blue;
+    font: bold 2em Arial, Helvetica, sans-serif;
+}
+
 #title {
     display: block;
     margin: auto 0;
